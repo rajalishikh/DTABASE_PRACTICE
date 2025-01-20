@@ -1,0 +1,19 @@
+-- Write a MySQL query to create a duplicate copy of countries table including structure and data by name dup_countries.
+CREATE DATABASE IF NOT EXISTS COUNTRY;
+USE COUNTRY;
+CREATE TABLE COUNTRY(
+COUNTRY_ID INT PRIMARY KEY,
+COUNTRY_NAME VARCHAR(50),
+REGION_ID INT
+);
+INSERT INTO COUNTRY 
+(COUNTRY_ID,COUNTRY_NAME,REGION_ID)
+VALUES
+(1,'BANGLADESH',2),
+(2,'INDIA',3),
+(3,'NEPAL',4),
+(4,'CHINA',5),
+(5,'PAKISTHAN',6);
+CREATE TABLE dup_countries2 LIKE COUNTRY;
+INSERT INTO dup_countries2 select * FROM COUNTRY;
+SELECT * FROM dup_countries2;
